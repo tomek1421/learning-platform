@@ -1,0 +1,82 @@
+@use "styles/vars" as *;
+
+body {
+  margin: 0;
+  font-family: $font-family, sans-serif;
+  font-weight: 500;
+  color: $text-color;
+  background-color: $background-color;
+  overflow-y: scroll;
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: $font-size;
+  border-radius: 1.5rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  background-color: $code-background-color;
+  color: $code-white;
+  box-sizing: border-box;
+  // border: 2px solid $secondary-background-color;
+  box-shadow: 0 5px 0 $code-secondary-background-color;
+  // 2 x 5px - ONLY for big btn
+  margin-bottom: 10px;
+
+  &:active {
+    transform: translateY(5px);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    transform: translateY(5px);
+    box-shadow: none;
+    cursor: not-allowed;
+    // color: $secondary-background-color;
+    // background-color: $background-color;
+    // border: 2px dashed $secondary-background-color;
+    opacity: 0.75;
+  }
+}
+
+.btn-wide {
+  width: 15rem;
+}
+
+c-bl {
+  color: $code-blue;
+}
+
+c-gr {
+  color: $code-green;
+}
+
+c-lb {
+  color: $code-light-blue;
+}
+
+c-yl {
+  color: $code-yellow;
+}
+
+c-or {
+  color: $code-orange;
+}
+
+c-pk {
+  color: $code-pink;
+}
+
+c-wh {
+  color: $code-white;
+}

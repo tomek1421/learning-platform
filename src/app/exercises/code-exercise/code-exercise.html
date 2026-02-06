@@ -1,0 +1,101 @@
+<div class="exercise">
+    <div class="instruction">{{ codeExercise.instruction }}</div>
+    
+    <div class="code-block" >
+
+        <code>
+            @for (line of codeExercise.lines; track $index) {
+    
+                <!-- LINE NUMEBR -->
+                <span class="line-number" >{{ $index + 1 }}</span>
+    
+                <!-- INDETATION -->
+                <span [innerHTML]="indentSpaces(line.indent)" ></span>
+    
+                <!-- BEFORE GAP -->
+                @for (token of line.before; track $index) {
+                    @switch (token.type) {
+                        @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                        @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                        @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                        @case ('or') { <c-or>{{ token.value }}</c-or> }
+                        @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                        @default { <span>{{ token.value }}</span> }
+                    }
+                }
+    
+                <!-- GAP -->
+                 @if (line.gap) {
+                    @if (gapInput) {
+                        <span class="filled-gap" >
+                            @for (token of gapInput; track $index) {
+                                @switch (token.type) {
+                                    @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                                    @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                    @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                                    @case ('or') { <c-or>{{ token.value }}</c-or> }
+                                    @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                    @default { <span>{{ token.value }}</span> }
+                                }
+                            }
+                        </span>
+                    } @else {
+                        <span class="gap" ></span>
+                    }
+                 }
+                 
+                <!-- AFTER -->
+                @if (line.after) {
+                    @for (token of line.after; track $index) {
+                        @switch (token.type) {
+                            @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                            @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                            @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                            @case ('or') { <c-or>{{ token.value }}</c-or> }
+                            @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                            @default { <span>{{ token.value }}</span> }
+                        }
+                    }
+                }
+                
+                <br />
+                
+            }
+    
+            <!-- EMPTY LINE -->
+            <span class="line-number" >{{ codeExercise.lines.length + 1 }}</span>
+        </code>
+
+        <div class="bar"></div>
+
+        <!-- OPTIONS -->
+        <div class="control-panel" >
+            <div class="options" >
+                @for (option of codeExercise.options; track $index) {
+                    <button class="code-btn" [disabled]="option.id === selectedId" (click)="setInputGap(option.id)" >
+                        @for (token of option.content; track $index) {
+                            @switch (token.type) {
+                                @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                                @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                                @case ('or') { <c-or>{{ token.value }}</c-or> }
+                                @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                @default { <span>{{ token.value }}</span> }
+                            }
+                        }
+                    </button>
+                }
+            </div>
+            <div class="control" >
+                <button class="code-btn" disabled >
+                    <svg fill="currentColor" class="code-icon" xmlns="http://www.w3.org/2000/svg" id="Filled" viewBox="0 0 24 24" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs"><g width="100%" height="100%" transform="matrix(-1,0,0,1,25.53377866744995,0)"><path d="M20.492,7.969,10.954.975A5,5,0,0,0,3,5.005V19a4.994,4.994,0,0,0,7.954,4.03l9.538-6.994a5,5,0,0,0,0-8.062Z" fill-opacity="1" data-original-color="#000000ff" stroke="none" stroke-opacity="1"/></g></svg>
+                </button>
+                <button class="code-btn" disabled >
+                    <svg fill="currentColor" class="code-icon" xmlns="http://www.w3.org/2000/svg" id="Filled" viewBox="0 0 24 24"><path d="M20.492,7.969,10.954.975A5,5,0,0,0,3,5.005V19a4.994,4.994,0,0,0,7.954,4.03l9.538-6.994a5,5,0,0,0,0-8.062Z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+

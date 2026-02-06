@@ -1,0 +1,68 @@
+<div class="exercise">
+    <div class="instruction">
+        <!-- TOTALLY WRONG -->
+        @for (instructionItem of multipleChoiceExercise.instruction; track $index) {
+            @for (contentItem of instructionItem.content; track $index) {
+                @if (isArray(contentItem.token)) {
+                    <span>     
+                        @for (tokenItem of contentItem.token; track $index) {
+                            @switch (tokenItem.type) {
+                                @case ('yl') { <c-yl>{{ tokenItem.value }}</c-yl> }
+                                @case ('bl') { <c-bl>{{ tokenItem.value }}</c-bl> }
+                                @case ('gr') { <c-gr>{{ tokenItem.value }}</c-gr> }
+                                @case ('or') { <c-or>{{ tokenItem.value }}</c-or> }
+                                @case ('pk') { <c-pk>{{ tokenItem.value }}</c-pk> }
+                                @case ('wh') { <c-wh>{{ tokenItem.value }}</c-wh> }
+                                @default { {{ tokenItem.value }} }
+                            }
+                        }
+                    </span>
+                } @else {
+                    {{ contentItem.token }}
+                }
+            }
+        }
+    </div>
+
+    <div class="answers-block" >
+        <!-- TOTALLY WRONG - MAYBE RIGHT-->
+        @for (option of multipleChoiceExercise.options; track $index) {
+            <button class="answer-btn" [class.selected]="option.id === selectedId" (click)="setSelectedAnswer(option.id)" >
+                @for (answerItem of option.answer; track $index) {
+                    @for (contentItem of answerItem.content; track $index) {
+                        @if (isArray(contentItem.token)) {
+                            <span>     
+                                @for (tokenItem of contentItem.token; track $index) {
+                                    @switch (tokenItem.type) {
+                                        @case ('yl') { <c-yl>{{ tokenItem.value }}</c-yl> }
+                                        @case ('bl') { <c-bl>{{ tokenItem.value }}</c-bl> }
+                                        @case ('gr') { <c-gr>{{ tokenItem.value }}</c-gr> }
+                                        @case ('or') { <c-or>{{ tokenItem.value }}</c-or> }
+                                        @case ('pk') { <c-pk>{{ tokenItem.value }}</c-pk> }
+                                        @case ('wh') { <c-wh>{{ tokenItem.value }}</c-wh> }
+                                        @default { {{ tokenItem.value }} }
+                                    }
+                                }
+                            </span>
+                        } @else {
+                            {{ contentItem.token }}
+                        }
+                    }
+                }
+            </button>
+        }
+
+        <!-- <button class="answer-btn">
+            The Roman Empire fell in 476 AD, when the last emperor was deposed, marking the end of ancient Rome.
+        </button>
+        <button class="answer-btn">
+            The Roman Empire officially ended after the Battle of Actium, when Octavian defeated Mark Antony and Cleopatra.
+        </button>
+        <button class="answer-btn">
+            The Roman <span>Empire declined gradually</span>
+        </button>
+        <button class="answer-btn selected">
+            The Roman Empire collapsed suddenly after a major earthquake destroyed Rome, causing chaos and mass migration.
+        </button> -->
+    </div>
+</div>
