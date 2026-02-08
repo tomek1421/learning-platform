@@ -6,6 +6,7 @@
     // gap: 2rem;
     width: 100%;
     margin-top: 2rem;
+    animation: showExercise 0.3s ease;
 }
 
 .instruction {
@@ -27,7 +28,7 @@ span {
     color: $code-green;
     font-family: $code-font-family;
     font-weight: $code-font-weight;
-    // margin: 0 0.1rem;
+    margin: 0 0.5px;
 }
 
 .answers-block {

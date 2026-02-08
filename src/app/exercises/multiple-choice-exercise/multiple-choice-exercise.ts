@@ -13,6 +13,10 @@ export class MultipleChoiceExercise {
 
   @Input({required: true}) multipleChoiceExercise!: MultipleChoiceExerciseDto;
 
+  @Input() set resetTrigger(_: number) {
+    this.selectedId = null;
+  }
+
   @Output() userAnswer = new EventEmitter<number>();
 
   selectedId: number | null = null;

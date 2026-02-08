@@ -53,6 +53,26 @@ button {
   width: 15rem;
 }
 
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: $font-size;
+  border-radius: 0.4rem;
+  height: 3rem;
+  width: fit-content;
+  padding: 0 1rem;
+  background-color: $background-color;
+  color: $code-secondary-background-color;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: $secondary-background-color;
+  }
+}
+
 c-bl {
   color: $code-blue;
 }
@@ -79,4 +99,15 @@ c-pk {
 
 c-wh {
   color: $code-white;
+}
+
+@keyframes showExercise {
+  from {
+    opacity: 0.75;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

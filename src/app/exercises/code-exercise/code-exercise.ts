@@ -1,6 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
-import { CodeExercisDto, CodeTokenDto } from '../../types/CodeExerciseDto';
-
+import { CodeExerciseDto, CodeTokenDto } from '../../types/CodeExerciseDto';
 
 @Component({
   selector: 'app-code-exercise',
@@ -11,7 +10,12 @@ import { CodeExercisDto, CodeTokenDto } from '../../types/CodeExerciseDto';
 })
 export class CodeExercise {
 
-  @Input({required: true}) codeExercise!: CodeExercisDto;
+  @Input({required: true}) codeExercise!: CodeExerciseDto;
+
+  @Input() set resetTrigger(_: number) {
+    this.gapInput = null;
+    this.selectedId = null;
+  }
 
   @Output() userAnswer = new EventEmitter<number>();
 

@@ -1,10 +1,11 @@
-import { CodeExercisDto } from "../types/CodeExerciseDto";
+import { CodeExerciseDto } from "../types/CodeExerciseDto";
 import { MultipleChoiceExerciseDto } from "../types/MultipleChoiceExerciseDto";
 
-export const csHelloWorldExercise: CodeExercisDto = {
+export const csHelloWorldExercise: CodeExerciseDto = {
   id: 'cs-hello-world',
+  type: 'code',
   instruction: 'Complete the missing code',
-  correctOptionId: 2,
+  correctOptionId: 1,
   options: [
     {
       id: 1,
@@ -70,10 +71,11 @@ export const csHelloWorldExercise: CodeExercisDto = {
 
 export const multipleChoiceExercise: MultipleChoiceExerciseDto = {
   id: "cs-hello-002",
+  type: 'multiple',
   instruction: [
     {
       content: [
-        { token: "What is the output of this C# code?" },
+        { token: "What is the output of this C# code? V2" },
         {
           token: [
             { type: "yl", value: "Console" },
@@ -85,7 +87,88 @@ export const multipleChoiceExercise: MultipleChoiceExerciseDto = {
             { type: "wh", value: ";" }
           ]
         },
-        
+        {
+          token: [
+            { type: "yl", value: "Console" },
+            { type: "wh", value: "." },
+            { type: "gr", value: "WriteLine" },
+          ]
+        },
+        {
+          token: [
+            { type: "yl", value: "Console" },
+            { type: "wh", value: "." },
+            { type: "gr", value: "WriteLine" },
+          ]
+        }
+      ]
+    }
+  ],
+  correctOptionId: 2,
+  options: [
+    {
+      id: 1,
+      answer: [
+        {
+          content: [
+            { token: "Hello World!" },
+            {
+              token: [
+                { type: "yl", value: "Console" },
+                { type: "wh", value: "." },
+                { type: "gr", value: "WriteLine" },
+                { type: "wh", value: "(" },
+                { type: "or", value: "\"Hello World!\"" },
+                { type: "wh", value: ")" },
+                { type: "wh", value: ";" }
+              ]
+            },
+            { token: "Hello World! ala am akota kot ma ale" },
+            {
+              token: [
+                { type: "yl", value: "Console" },
+                { type: "wh", value: "." },
+                { type: "gr", value: "WriteLine" },
+                { type: "wh", value: "(" },
+                { type: "or", value: "\"Hello World!\"" },
+                { type: "wh", value: ")" },
+                { type: "wh", value: ";" }
+              ]
+            },
+          ]
+        }
+      ]
+    },
+    {
+      id: 2,
+      answer: [
+        {
+          content: [
+            { token: "Hello" }
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
+      answer: [
+        {
+          content: [
+            { token: "Compilation error" }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+export const multipleChoiceExercise2: MultipleChoiceExerciseDto = {
+  id: "cs-hello-003",
+  type: 'multiple',
+  instruction: [
+    {
+      content: [
+        { token: "What is the output of this C# code?" },
       ]
     }
   ],
@@ -139,7 +222,7 @@ export const multipleChoiceExercise: MultipleChoiceExerciseDto = {
       answer: [
         {
           content: [
-            { token: "Compilation error" }
+            { token: "Compilation error YYYy" }
           ]
         }
       ]

@@ -23,8 +23,9 @@ export interface AnswerDto {
     content: CodeTokenDto[]
 }
 
-export interface CodeExercisDto {
+export interface CodeExerciseDto {
     id: string;
+    type: 'code';
     instruction: string;
     correctOptionId: number;
     options: AnswerDto[];
