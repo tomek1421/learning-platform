@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
 import { CodeExerciseDto, CodeTokenDto } from '../../types/CodeExerciseDto';
+import { ExerciseInterface } from '../../types/exerciseInterfaces';
 
 @Component({
   selector: 'app-code-exercise',
@@ -8,8 +9,7 @@ import { CodeExerciseDto, CodeTokenDto } from '../../types/CodeExerciseDto';
   styleUrl: './code-exercise.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class CodeExercise {
-
+export class CodeExercise implements ExerciseInterface {
   @Input({required: true}) codeExercise!: CodeExerciseDto;
 
   @Input() set resetTrigger(_: number) {
@@ -17,7 +17,7 @@ export class CodeExercise {
     this.selectedId = null;
   }
 
-  @Output() userAnswer = new EventEmitter<number>();
+  @Output() userAnswer = new EventEmitter<boolean>();
 
   gapInput?: CodeTokenDto[] | null = null;
   selectedId?: number | null = null;
@@ -26,13 +26,20 @@ export class CodeExercise {
     const option = this.codeExercise.options.find(x => x.id === id);
     this.gapInput = option?.content;
     this.selectedId = option?.id;
-    this.userAnswer.emit(option?.id ?? 1);
+    // this.userAnswer.emit(option?.id ?? 1);
+    
+    const isCorrect = this.isAnswerCorerct();
+    this.userAnswer.emit(isCorrect);
   }
 
   public indentSpaces(indent?: number | undefined): string {
     if (!indent)
       return '';
     return '&nbsp'.repeat(indent * 4);
+  }
+
+  isAnswerCorerct(): boolean {
+    return this.selectedId === this.codeExercise.correctOptionId;
   }
 
 }

@@ -53,24 +53,16 @@ button {
   width: 15rem;
 }
 
-.secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: $font-family;
-  font-weight: 700;
-  font-size: $font-size;
-  border-radius: 0.4rem;
-  height: 3rem;
-  width: fit-content;
-  padding: 0 1rem;
-  background-color: $background-color;
-  color: $code-secondary-background-color;
-  box-sizing: border-box;
+.btn-gray {
+  background-color: $dark-gray;
+  color: $text-color;
+  box-shadow: 0 5px 0 $box-shadow-gray;
+}
 
-  &:hover {
-    background-color: $secondary-background-color;
-  }
+.btn-green {
+  background-color: rgb(150, 232, 171);
+  color: $text-color;
+  box-shadow: 0 5px 0 rgb(133, 203, 150);
 }
 
 c-bl {
@@ -99,6 +91,10 @@ c-pk {
 
 c-wh {
   color: $code-white;
+}
+
+c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl {
+  white-space: pre;
 }
 
 @keyframes showExercise {

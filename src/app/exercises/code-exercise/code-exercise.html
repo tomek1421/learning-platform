@@ -72,7 +72,7 @@
         <div class="control-panel" >
             <div class="options" >
                 @for (option of codeExercise.options; track $index) {
-                    <button class="code-btn" [disabled]="option.id === selectedId" (click)="setInputGap(option.id)" >
+                    <button class="code-btn" [class.selected]="option.id === selectedId" (click)="setInputGap(option.id)" >
                         @for (token of option.content; track $index) {
                             @switch (token.type) {
                                 @case ('yl') { <c-yl>{{ token.value }}</c-yl> }

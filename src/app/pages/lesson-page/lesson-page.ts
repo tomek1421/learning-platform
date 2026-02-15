@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { csHelloWorldExercise, multipleChoiceExercise, multipleChoiceExercise2 } from '../../data/exercises';
+import { csHelloWorldExercise, codeOrderExercise, multipleChoiceExercise, multipleChoiceExercise2 } from '../../data/exercises';
 import { CodeExerciseDto } from '../../types/CodeExerciseDto';
 import { CodeExercise } from "../../exercises/code-exercise/code-exercise";
 import { MultipleChoiceExercise } from "../../exercises/multiple-choice-exercise/multiple-choice-exercise";
 import { MultipleChoiceExerciseDto } from '../../types/MultipleChoiceExerciseDto';
+import { CodeOrderExercise } from "../../exercises/code-order-exercise/code-order-exercise";
+import { CodeOrderExerciseDto } from '../../types/CodeOrderExercise';
 
 @Component({
   selector: 'app-lesson-page',
-  imports: [CodeExercise, MultipleChoiceExercise],
+  imports: [CodeExercise, MultipleChoiceExercise, CodeOrderExercise],
   templateUrl: './lesson-page.html',
   styleUrl: './lesson-page.scss',
 })
@@ -15,8 +17,9 @@ export class LessonPage {
   exerciseData: CodeExerciseDto = csHelloWorldExercise;
   multipleChoiceExerciseData: MultipleChoiceExerciseDto = multipleChoiceExercise;
   multipleChoiceExerciseData2: MultipleChoiceExerciseDto = multipleChoiceExercise2;
+  codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
 
-  listOfExercises = [this.exerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2];
+  listOfExercises = [this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
 
   currentExerciseIndex = 0;
 
@@ -36,14 +39,8 @@ export class LessonPage {
     return this.listOfExercises[this.currentExerciseIndex];
   }
 
-  onSelectAnswer(answerId: number) {
-    this.selectedAnswerId = answerId;
-  }
-
   onSubmitAnswer() {
     this.isAnswerSubmited = true;
-    // maybe this logic in exercise compoennt and just emit it
-    this.isAnswerCorrect = this.currentExercise.correctOptionId === this.selectedAnswerId;
     
     if (this.isAnswerCorrect) {
       this.playSuccess();
@@ -51,6 +48,11 @@ export class LessonPage {
       this.playFailure();
     }
     // console.log(this.isAnswerSubmited, this.isAnswerCorrect);
+  }
+
+  onSelectAnswer(isCorrect: boolean) {
+    this.selectedAnswerId = 1;
+    this.isAnswerCorrect = isCorrect;
   }
 
   playSuccess() {

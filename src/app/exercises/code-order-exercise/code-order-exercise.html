@@ -1,0 +1,59 @@
+<div class="exercise" >
+    <div class="instruction">{{ codeOrderExercise.instruction }}</div>
+
+    <div class="code-block" >
+
+        <code>
+            <!-- LINE NUMEBR -->
+            <span class="line-number" >1</span>
+            
+            @if (selectedIdsOrder.length > 0) {
+
+                <span class="filled-gap" >
+                    @for (option of selectedIdsOrder; track $index) {
+                        @for (token of getOption(option)?.content; track $index) {
+                            @switch (token.type) {
+                                @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                                @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                                @case ('or') { <c-or>{{ token.value }}</c-or> }
+                                @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                @default { <span>{{ token.value }}</span> }
+                            }
+                        }
+                    }
+                </span>
+            }
+            @else {
+                <span class="gap" ></span>
+            }
+    
+            <br/>
+            
+            <!-- EMPTY LINE -->
+            <span class="line-number" >2</span>
+        </code>
+
+        <div class="bar"></div>
+
+        <!-- OPTIONS -->
+        <div class="control-panel" >
+            <div class="options" >
+                @for (option of codeOrderExercise.options; track $index) {
+                    <button class="code-btn" [class.selected]="isSelected(option.id)" (click)="onClickOption(option.id)" >
+                        @for (token of option.content; track $index) {
+                            @switch (token.type) {
+                                @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
+                                @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
+                                @case ('or') { <c-or>{{ token.value }}</c-or> }
+                                @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                @default { <span>{{ token.value }}</span> }
+                            }
+                        }
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

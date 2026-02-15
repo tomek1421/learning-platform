@@ -21,7 +21,8 @@
     width: 100vw;
     height: 5rem;
     background-color: $background-color;
-    border-top: 2px solid $secondary-background-color;
+    // border-top: 2px solid $secondary-background-color;
+    border-top: 2px solid $dark-gray;
     box-sizing: border-box;
 
     display: flex;
@@ -72,7 +73,7 @@
 
 .success {
     background-color: rgb(210, 249, 220);
-    border-top: 2px solid rgb(169, 237, 186);
+    border-top: 2px solid rgb(150, 232, 171);
     color: rgb(54, 176, 86);
 }
 
@@ -80,8 +81,8 @@
     // background-color: rgb(255, 203, 203);
     // border-top: 2px solid rgb(237, 169, 169);
     // color: rgb(176, 54, 54);
-    background-color: #f0f0f0;
-    color: $code-background-color;
+    background-color: $light-gray;
+    color: $text-color;
 }
 
 @keyframes footerUp {

@@ -46,7 +46,7 @@ span {
     border: 2px solid $secondary-background-color;
     box-sizing: border-box;
     border-radius: 0.4rem;
-    box-shadow: 0 2px 0 $secondary-background-color;
+    // box-shadow: 0 2px 0 $secondary-background-color;
     margin-bottom: 3px;
     width: 100%;
     padding: 0.5rem 1rem;
@@ -55,7 +55,7 @@ span {
     text-align: left;
 
     // should i use transition?
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, border 0.2s;
 
     &:hover {
         // border-color: $active;
@@ -63,12 +63,12 @@ span {
     }
 
     &:active {
-        transform: translateY(2px);
+        // transform: translateY(2px);
         box-shadow: none;
     }
 
     &:disabled {
-        transform: translateY(2px);
+        // transform: translateY(2px);
         box-shadow: none;
         opacity: 0.75;
     }
@@ -77,5 +77,5 @@ span {
 .selected {
     background-color: $active-light;
     border-color: $active;
-    box-shadow: 0 2px 0 $active;
+    // box-shadow: 0 2px 0 $active;
 }

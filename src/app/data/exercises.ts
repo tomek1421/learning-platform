@@ -1,4 +1,5 @@
 import { CodeExerciseDto } from "../types/CodeExerciseDto";
+import { CodeOrderExerciseDto } from "../types/CodeOrderExercise";
 import { MultipleChoiceExerciseDto } from "../types/MultipleChoiceExerciseDto";
 
 export const csHelloWorldExercise: CodeExerciseDto = {
@@ -228,4 +229,19 @@ export const multipleChoiceExercise2: MultipleChoiceExerciseDto = {
       ]
     }
   ]
+};
+
+export const codeOrderExercise: CodeOrderExerciseDto = {
+  id: 'exercise-201',
+  type: 'order',
+  instruction: 'Put the tokens in the correct order to print "Hello World":',
+  options: [
+    { id: 1, content: [{ type: 'bl', value: 'console' }] },
+    { id: 2, content: [{ type: 'pk', value: '.' }] },
+    { id: 3, content: [{ type: 'gr', value: 'log' }] },
+    { id: 4, content: [{ type: 'wh', value: '(' }] },
+    { id: 5, content: [{ type: 'or', value: '"Hello World"' }] },
+    { id: 6, content: [{ type: 'wh', value: ');' }] },
+  ],
+  correctOptionsIdOrder: [1, 2, 3, 4, 5, 6]
 };

@@ -9,9 +9,16 @@
             @if (currentExercise.type === 'multiple') {
                 <app-multiple-choice-exercise [multipleChoiceExercise]="parseToMultipleExercise()" [resetTrigger]="resetCounter" (userAnswer)="onSelectAnswer($event)" />
             }
+
+            @if (currentExercise.type === 'order') {
+                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" (userAnswer)="onSelectAnswer($event)" />
+            }
             
         </div>
     }
+    <!-- <div class="exercise" >
+        <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" (userAnswer)="onSelectAnswer2($event)" />
+    </div> -->
 </div>
 
 @if (isAnswerSubmited) {
@@ -21,13 +28,13 @@
                 @if (isAnswerCorrect) {
                     🎉 Correct!
                 } @else {
-                    ⚠️ Wrong Answer
+                    🚨 Wrong Answer
                 }
             </div>
             <div class="btn-group">
-                <button class="btn" (click)="reset()" >Reset</button>
+                <!-- <button class="btn" (click)="reset()" >Reset</button> -->
                 <button class="btn" >Why?</button>
-                <button class="btn" (click)="nextExecise()" >Continue</button>
+                <button class="btn" [class]="isAnswerCorrect ? 'btn-green' : 'btn-gray'" (click)="nextExecise()" >Continue</button>
             </div>
         </div>
     </div>
