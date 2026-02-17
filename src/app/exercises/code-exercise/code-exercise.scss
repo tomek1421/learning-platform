@@ -111,6 +111,7 @@ code {
   border: 2px dashed $active;
   box-sizing: border-box;
   cursor: pointer;
+  background-color: $active-dark;
 }
 
 .code-btn {
@@ -134,21 +135,18 @@ code {
   padding: 0.5rem 1rem;
   // line-height: 2rem;
   line-height: 1.8rem;
-  transition: background-color 0.2s, border 0.2s;
+  // transition: background-color 0.2s, border 0.2s;
+  position: relative;
 
-
-  &:active {
-    // transform: translateY(2px);
-    box-shadow: none;
+  &:not(:disabled):hover {
+    background-color: #2e2f36;
   }
 
-  &:disabled {
-    // transform: translateY(2px);
-    box-shadow: none;
-    opacity: 0.75;
-    // background-color: $code-secondary-background-color;
-    // background-color: $active-dark;
-  }
+  // &:active {
+  //   // transform: translateY(2px);
+  //   box-shadow: none;
+  // }
+
 
   .code-icon {
     width: 1rem;
@@ -162,4 +160,44 @@ code {
 .selected {
   border-color: $active;
   background-color: $active-dark;
+
+  &:not(:disabled):hover {
+    background-color: $active-dark;
+  }
+}
+
+.correct {
+  border-color: rgb(69, 193, 102);
+  background-color: #2a3a33;
+}
+
+.wrong {
+  border-color: red;
+  background-color: #3f2d2d;
+}
+
+.status-square {
+  position: absolute;
+  content: '8';
+  width: 1rem;
+  height: 1rem;
+  background-color: rgb(69, 193, 102);
+  top: -0.4rem;
+  right: -0.4rem;
+  border-radius: 0.25rem;
+  font-family: $font-family;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 0.75rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 0.5rem;
+  }
+}
+
+.square-wrong {
+  background-color: red;
 }

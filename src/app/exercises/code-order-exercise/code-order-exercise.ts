@@ -13,6 +13,8 @@ export class CodeOrderExercise implements ExerciseInterface {
 
     @Input({required: true}) codeOrderExercise!: CodeOrderExerciseDto;
 
+    @Input({required: true}) isSubmited!: boolean;
+
     @Output() userAnswer = new EventEmitter<boolean>();
 
     selectedIdsOrder: number[] = [];
@@ -33,6 +35,16 @@ export class CodeOrderExercise implements ExerciseInterface {
       
       if (this.selectedIdsOrder.length === this.codeOrderExercise.options.length)
         this.userAnswer.emit(isCorrect);
+    }
+
+    getOptionOrder(id: number) {
+      return this.selectedIdsOrder.findIndex(optionId => optionId === id) + 1;
+    }
+
+    isOptionCorrect(id: number) {
+      const helperList = this.selectedIdsOrder.map((value, i) => value === this.codeOrderExercise.options[i].id);
+      const index = this.selectedIdsOrder.findIndex(o => o === id);
+      return helperList[index];
     }
 
     isSelected(id: number) {

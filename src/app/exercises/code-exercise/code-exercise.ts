@@ -17,6 +17,8 @@ export class CodeExercise implements ExerciseInterface {
     this.selectedId = null;
   }
 
+  @Input({required: true}) isSubmited!: boolean;
+
   @Output() userAnswer = new EventEmitter<boolean>();
 
   gapInput?: CodeTokenDto[] | null = null;

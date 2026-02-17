@@ -15,7 +15,7 @@ export interface TextWithCodeAnswerDto {
 
 export interface MultipleChoiceExerciseDto {
     id: string,
-    type: 'multiple',
+    type: 'code' | 'multiple' | 'order',
     instruction: TextWithCodeDto[],
     correctOptionId: number,
     options: TextWithCodeAnswerDto[]

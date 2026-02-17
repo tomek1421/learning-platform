@@ -20,6 +20,7 @@ export class LessonPage {
   codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
 
   listOfExercises = [this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
+  // listOfExercises = [this.codeOrderExerciseData];
 
   currentExerciseIndex = 0;
 

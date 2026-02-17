@@ -18,6 +18,8 @@ export class MultipleChoiceExercise implements ExerciseInterface {
     this.selectedId = null;
   }
 
+  @Input({required: true}) isSubmited!: boolean;
+
   @Output() userAnswer = new EventEmitter<boolean>();
 
   selectedId: number | null = null;
