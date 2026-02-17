@@ -107,3 +107,30 @@ c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl {
     transform: translateY(0);
   }
 }
+
+.btn-flat {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  font-size: 1rem;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  background-color: white;
+  color: $text-color;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  position: relative;
+  padding: 0.5rem 1rem;
+  line-height: 1.8rem;
+
+  &:hover {
+    background-color: $light-gray;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}

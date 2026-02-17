@@ -1,3 +1,4 @@
 export interface ExerciseInterface {
-    isAnswerCorerct(): boolean
+    isAnswerCorerct(): boolean,
+    onReset(): void
 }

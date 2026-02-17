@@ -3,15 +3,15 @@
         <div class="exercise" >
             
             @if (currentExercise.type === 'code') {
-                <app-code-exercise [codeExercise]="parseToCodeExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" />
+                <app-code-exercise [codeExercise]="parseToCodeExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
             }
     
             @if (currentExercise.type === 'multiple') {
-                <app-multiple-choice-exercise [multipleChoiceExercise]="parseToMultipleExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" />
+                <app-multiple-choice-exercise [multipleChoiceExercise]="parseToMultipleExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
             }
 
             @if (currentExercise.type === 'order') {
-                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" />
+                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
             }
             
         </div>
@@ -32,7 +32,7 @@
                 }
             </div>
             <div class="btn-group">
-                <button class="btn" (click)="reset()" >Reset</button>
+                <!-- <button class="btn btn-gray" (click)="reset()" >Reset</button> -->
                 <button class="btn" >Why?</button>
                 <button class="btn" [class]="isAnswerCorrect ? 'btn-green' : 'btn-gray'" (click)="nextExecise()" >Continue</button>
             </div>

@@ -17,6 +17,8 @@ export class CodeOrderExercise implements ExerciseInterface {
 
     @Output() userAnswer = new EventEmitter<boolean>();
 
+    @Output() reset = new EventEmitter();
+
     selectedIdsOrder: number[] = [];
 
     getOption(id: number) {
@@ -54,5 +56,10 @@ export class CodeOrderExercise implements ExerciseInterface {
     isAnswerCorerct(): boolean {
       if (this.selectedIdsOrder.length !== this.codeOrderExercise.correctOptionsIdOrder.length) return false;
       return this.selectedIdsOrder.every((value, index) => value === this.codeOrderExercise.correctOptionsIdOrder[index]);
+    }
+
+    onReset(): void {
+      this.selectedIdsOrder = [];
+      this.reset.emit();
     }
 }

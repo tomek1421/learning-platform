@@ -22,6 +22,8 @@ export class MultipleChoiceExercise implements ExerciseInterface {
 
   @Output() userAnswer = new EventEmitter<boolean>();
 
+  @Output() reset = new EventEmitter();
+
   selectedId: number | null = null;
 
   setSelectedAnswer(optionId: number) {
@@ -38,5 +40,10 @@ export class MultipleChoiceExercise implements ExerciseInterface {
 
   isAnswerCorerct(): boolean {
     return this.selectedId === this.multipleChoiceExercise.correctOptionId;
+  }
+
+  onReset(): void {
+    this.selectedId = null;
+    this.reset.emit();
   }
 }

@@ -1,18 +1,18 @@
 @use "styles/vars" as *;
 
 .exercise {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 2rem;
-    animation: showExercise 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+  animation: showExercise 0.3s ease;
 }
 
 .instruction {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    line-height: 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.8rem;
 }
 
 .line-number {
@@ -200,4 +200,10 @@ code {
 
 .square-correct {
   background-color: rgb(69, 193, 102);
+}
+
+.reset-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 }

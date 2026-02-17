@@ -27,7 +27,7 @@
     <div class="answers-block" >
         <!-- TOTALLY WRONG - MAYBE RIGHT-->
         @for (option of multipleChoiceExercise.options; track $index) {
-            <button class="answer-btn" [class]="{ selected: option.id === selectedId, correct: option.id === selectedId && isSubmited && isAnswerCorerct(), wrong: option.id === selectedId && isSubmited && !isAnswerCorerct() }" [disabled]="isSubmited" (click)="setSelectedAnswer(option.id)" >
+            <button class="answer-btn" [class]="{ selected: option.id === selectedId, correct: option.id === selectedId && isSubmited && isAnswerCorerct() || (option.id === multipleChoiceExercise.correctOptionId && isSubmited), wrong: option.id === selectedId && isSubmited && !isAnswerCorerct() }" [disabled]="isSubmited" (click)="setSelectedAnswer(option.id)" >
                 @for (answerItem of option.answer; track $index) {
                     @for (contentItem of answerItem.content; track $index) {
                         @if (isArray(contentItem.token)) {
@@ -59,9 +59,19 @@
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.021 512.021" style="enable-background:new 0 0 512.021 512.021;" xml:space="preserve" ><g><path d="M301.258,256.01L502.645,54.645c12.501-12.501,12.501-32.769,0-45.269c-12.501-12.501-32.769-12.501-45.269,0l0,0   L256.01,210.762L54.645,9.376c-12.501-12.501-32.769-12.501-45.269,0s-12.501,32.769,0,45.269L210.762,256.01L9.376,457.376   c-12.501,12.501-12.501,32.769,0,45.269s32.769,12.501,45.269,0L256.01,301.258l201.365,201.387   c12.501,12.501,32.769,12.501,45.269,0c12.501-12.501,12.501-32.769,0-45.269L301.258,256.01z"/></g></svg>
                         </div>
                     }
+                } @else if (option.id === multipleChoiceExercise.correctOptionId && isSubmited) {
+                    <div class="status-square">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 507.506 507.506" style="enable-background:new 0 0 507.506 507.506;" xml:space="preserve" ><g><path d="M163.865,436.934c-14.406,0.006-28.222-5.72-38.4-15.915L9.369,304.966c-12.492-12.496-12.492-32.752,0-45.248l0,0   c12.496-12.492,32.752-12.492,45.248,0l109.248,109.248L452.889,79.942c12.496-12.492,32.752-12.492,45.248,0l0,0   c12.492,12.496,12.492,32.752,0,45.248L202.265,421.019C192.087,431.214,178.271,436.94,163.865,436.934z"/></g></svg>
+                    </div>
                 }
             </button>
         }
 
+    </div>
+    <div class="reset-section" >
+        <button class="btn-flat" (click)="onReset()" >
+            Reset
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24"><path d="m23,17.187v4.52c0,.705-.852,1.058-1.35.559l-1.491-1.491c-2.2,2.042-5.103,3.225-8.158,3.225C6.066,24,.868,19.577.029,13.712c-.117-.82.453-1.58,1.273-1.697.816-.122,1.579.453,1.697,1.272.628,4.397,4.55,7.712,9,7.712,2.254,0,4.4-.856,6.041-2.342l-1.308-1.308c-.498-.498-.145-1.35.559-1.35h4.52c.656,0,1.187.531,1.187,1.187ZM1,6.813V2.293c0-.705.852-1.058,1.35-.559l1.491,1.491C6.042,1.183,8.945,0,12,0c5.934,0,11.132,4.423,11.971,10.288.117.82-.453,1.58-1.273,1.697-.816.122-1.579-.453-1.697-1.272-.628-4.397-4.55-7.712-9-7.712-2.254,0-4.4.856-6.041,2.342l1.308,1.308c.498.498.145,1.35-.559,1.35H2.187c-.656,0-1.187-.531-1.187-1.187Z"/></svg>
+        </button>
     </div>
 </div>

@@ -21,6 +21,8 @@ export class CodeExercise implements ExerciseInterface {
 
   @Output() userAnswer = new EventEmitter<boolean>();
 
+  @Output() reset = new EventEmitter();
+
   gapInput?: CodeTokenDto[] | null = null;
   selectedId?: number | null = null;
 
@@ -42,6 +44,12 @@ export class CodeExercise implements ExerciseInterface {
 
   isAnswerCorerct(): boolean {
     return this.selectedId === this.codeExercise.correctOptionId;
+  }
+
+  onReset(): void {
+    this.gapInput = null;
+    this.selectedId = null;
+    this.reset.emit();
   }
 
 }
