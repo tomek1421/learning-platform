@@ -86,6 +86,10 @@ export class LessonPage {
     this.resetCurrentExercise();
   }
 
+  disable() {
+    this.selectedAnswerId = null;
+  }
+
   private resetCurrentExercise() {
     this.resetCounter++;
   }

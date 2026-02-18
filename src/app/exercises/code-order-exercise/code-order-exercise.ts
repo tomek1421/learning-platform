@@ -19,6 +19,8 @@ export class CodeOrderExercise implements ExerciseInterface {
 
     @Output() reset = new EventEmitter();
 
+    @Output() disable = new EventEmitter();
+
     selectedIdsOrder: number[] = [];
 
     getOption(id: number) {
@@ -35,8 +37,11 @@ export class CodeOrderExercise implements ExerciseInterface {
 
       const isCorrect = this.isAnswerCorerct();
       
-      if (this.selectedIdsOrder.length === this.codeOrderExercise.options.length)
+      if (this.selectedIdsOrder.length === this.codeOrderExercise.options.length) {
         this.userAnswer.emit(isCorrect);
+      } else {
+        this.disable.emit();
+      }
     }
 
     getOptionOrder(id: number) {

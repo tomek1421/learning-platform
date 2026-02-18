@@ -11,7 +11,7 @@
             }
 
             @if (currentExercise.type === 'order') {
-                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
+                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
             }
             
         </div>
