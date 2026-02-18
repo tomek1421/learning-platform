@@ -177,12 +177,46 @@ export const multipleChoiceExercise2: MultipleChoiceExerciseDto = {
     {
       tokens: [
         { type: 'bl', value: 'public ' },
+        { type: 'bl', value: 'class ' },
+        { type: 'yl', value: 'Program' },
+      ],
+    },
+    {
+      tokens: [{ type: 'wh', value: '{' }],
+    },
+    {
+      indent: 1,
+      tokens: [
+        { type: 'bl', value: 'public ' },
         { type: 'bl', value: 'static ' },
         { type: 'bl', value: 'void ' },
         { type: 'yl', value: 'Main' },
         { type: 'wh', value: '()' },
       ],
-    }
+    },
+    {
+      indent: 1,
+      tokens: [{ type: 'wh', value: '{' }],
+    },
+    {
+      indent: 2,
+      tokens: [
+        { type: 'gr', value: 'Console' },
+        { type: 'pk', value: '.' },
+        { type: 'gr', value: 'WriteLine' },
+        { type: 'wh', value: '(' },
+        { type: 'or', value: '"Hello World"' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+    {
+      indent: 1,
+      tokens: [{ type: 'wh', value: '}' }],
+    },
+    {
+      tokens: [{ type: 'wh', value: '}' }],
+    },
   ],
   correctOptionId: 3,
   options: [

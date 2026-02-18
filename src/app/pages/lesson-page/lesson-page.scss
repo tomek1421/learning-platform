@@ -5,14 +5,20 @@
     height: 100%;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    // align-items: center;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     // border: 1px solid green;
 }
 
 .exercise {
     width: $lesson-page-width;
+}
+
+.margin {
+    padding-bottom: 6rem;
+    width: 100%;
 }
 
 .footer {
