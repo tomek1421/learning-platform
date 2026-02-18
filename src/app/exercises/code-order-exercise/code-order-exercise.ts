@@ -44,7 +44,7 @@ export class CodeOrderExercise implements ExerciseInterface {
     }
 
     isOptionCorrect(id: number) {
-      const helperList = this.selectedIdsOrder.map((value, i) => value === this.codeOrderExercise.options[i].id);
+      const helperList = this.selectedIdsOrder.map((value, i) => value === this.codeOrderExercise.correctOptionsIdOrder[i]);
       const index = this.selectedIdsOrder.findIndex(o => o === id);
       return helperList[index];
     }
