@@ -11,7 +11,7 @@ export interface CodeTokenDto {
     value: string
 }
 
-export interface CodeLineDto {
+export interface InteractiveCodeLineDto {
     indent?: number;
     before: CodeTokenDto[];
     gap?: boolean;
@@ -29,5 +29,5 @@ export interface CodeExerciseDto {
     instruction: string;
     correctOptionId: number;
     options: AnswerDto[];
-    lines: CodeLineDto[];
+    lines: InteractiveCodeLineDto[];
 }

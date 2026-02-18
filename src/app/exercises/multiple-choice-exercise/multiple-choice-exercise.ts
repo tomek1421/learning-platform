@@ -46,4 +46,10 @@ export class MultipleChoiceExercise implements ExerciseInterface {
     this.selectedId = null;
     this.reset.emit();
   }
+
+  indentSpaces(indent?: number | undefined): string {
+    if (!indent)
+      return '';
+    return '&nbsp'.repeat(indent * 4);
+  }
 }

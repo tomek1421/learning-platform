@@ -173,6 +173,17 @@ export const multipleChoiceExercise2: MultipleChoiceExerciseDto = {
       ]
     }
   ],
+  lines: [
+    {
+      tokens: [
+        { type: 'bl', value: 'public ' },
+        { type: 'bl', value: 'static ' },
+        { type: 'bl', value: 'void ' },
+        { type: 'yl', value: 'Main' },
+        { type: 'wh', value: '()' },
+      ],
+    }
+  ],
   correctOptionId: 3,
   options: [
     {
