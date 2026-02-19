@@ -93,7 +93,11 @@ c-wh {
   color: $code-white;
 }
 
-c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl {
+c-cmt {
+  color: $code-comment-green;
+}
+
+c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl, c-cmt {
   white-space: pre;
 }
 

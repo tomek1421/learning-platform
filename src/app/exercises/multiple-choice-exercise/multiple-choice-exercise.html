@@ -9,10 +9,11 @@
                             @switch (tokenItem.type) {
                                 @case ('yl') { <c-yl>{{ tokenItem.value }}</c-yl> }
                                 @case ('bl') { <c-bl>{{ tokenItem.value }}</c-bl> }
+                                @case ('lb') { <c-lb>{{ tokenItem.value }}</c-lb> }
                                 @case ('gr') { <c-gr>{{ tokenItem.value }}</c-gr> }
                                 @case ('or') { <c-or>{{ tokenItem.value }}</c-or> }
                                 @case ('pk') { <c-pk>{{ tokenItem.value }}</c-pk> }
-                                @case ('wh') { <c-wh>{{ tokenItem.value }}</c-wh> }
+                                @case ('cmt') { <c-cmt>{{ tokenItem.value }}</c-cmt> }
                                 @default { {{ tokenItem.value }} }
                             }
                         }
@@ -40,9 +41,11 @@
                         @switch (token.type) {
                             @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
                             @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                            @case ('lb') { <c-lb>{{ token.value }}</c-lb> }
                             @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
                             @case ('or') { <c-or>{{ token.value }}</c-or> }
                             @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                            @case ('cmt') { <c-cmt>{{ token.value }}</c-cmt> }
                             @default { <span>{{ token.value }}</span> }
                         }
                     }
@@ -69,10 +72,11 @@
                                     @switch (tokenItem.type) {
                                         @case ('yl') { <c-yl>{{ tokenItem.value }}</c-yl> }
                                         @case ('bl') { <c-bl>{{ tokenItem.value }}</c-bl> }
+                                        @case ('lb') { <c-lb>{{ tokenItem.value }}</c-lb> }
                                         @case ('gr') { <c-gr>{{ tokenItem.value }}</c-gr> }
                                         @case ('or') { <c-or>{{ tokenItem.value }}</c-or> }
                                         @case ('pk') { <c-pk>{{ tokenItem.value }}</c-pk> }
-                                        @case ('wh') { <c-wh>{{ tokenItem.value }}</c-wh> }
+                                        @case ('cmt') { <c-cmt>{{ tokenItem.value }}</c-cmt> }
                                         @default { {{ tokenItem.value }} }
                                     }
                                 }

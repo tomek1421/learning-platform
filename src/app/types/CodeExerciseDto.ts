@@ -1,10 +1,12 @@
 export type Color =
   | 'wh'      // white
   | 'bl'      // blue (keyword)
+  | 'lb'      // light blue - type/class/interface
   | 'gr'      // green (method)
   | 'yl'      // yellow (type)
   | 'or'      // orange (string)
-  | 'pk';     // pink (dot / punctuation)
+  | 'pk'      // pink (dot / punctuation)
+  | 'cmt';    // comment green
 
 export interface CodeTokenDto {
     type: Color;

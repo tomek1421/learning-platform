@@ -18,7 +18,7 @@ export const csHelloWorldExercise: CodeExerciseDto = {
     },
     {
       id: 3,
-      content: [{ type: 'gr', value: 'Hello' }],
+      content: [{ type: 'gr', value: 'Hello World and Good Morning' }],
     },
     {
       id: 4,
@@ -176,46 +176,211 @@ export const multipleChoiceExercise2: MultipleChoiceExerciseDto = {
   lines: [
     {
       tokens: [
-        { type: 'bl', value: 'public ' },
-        { type: 'bl', value: 'class ' },
-        { type: 'yl', value: 'Program' },
-      ],
-    },
-    {
-      tokens: [{ type: 'wh', value: '{' }],
-    },
-    {
-      indent: 1,
-      tokens: [
-        { type: 'bl', value: 'public ' },
-        { type: 'bl', value: 'static ' },
-        { type: 'bl', value: 'void ' },
-        { type: 'yl', value: 'Main' },
-        { type: 'wh', value: '()' },
-      ],
-    },
-    {
-      indent: 1,
-      tokens: [{ type: 'wh', value: '{' }],
-    },
-    {
-      indent: 2,
-      tokens: [
-        { type: 'gr', value: 'Console' },
-        { type: 'pk', value: '.' },
-        { type: 'gr', value: 'WriteLine' },
-        { type: 'wh', value: '(' },
-        { type: 'or', value: '"Hello World"' },
-        { type: 'wh', value: ')' },
+        { type: 'bl', value: 'using ' },
+        { type: 'wh', value: 'Microsoft' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'AspNetCore' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Builder' },
         { type: 'wh', value: ';' },
       ],
     },
     {
-      indent: 1,
-      tokens: [{ type: 'wh', value: '}' }],
+      tokens: [
+        { type: 'bl', value: 'using ' },
+        { type: 'wh', value: 'Microsoft' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Extensions' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'DependencyInjection' },
+        { type: 'wh', value: ';' },
+      ],
     },
     {
+      tokens: [
+        { type: 'bl', value: 'using ' },
+        { type: 'wh', value: 'Microsoft' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Extensions' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Hosting' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    { tokens: [{ type: 'wh', value: '' }] },
+
+    {
+      tokens: [
+        { type: 'bl', value: 'var ' },
+        { type: 'lb', value: 'builder' },
+        { type: 'wh', value: ' = ' },
+        { type: 'gr', value: 'WebApplication' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'CreateBuilder' },
+        { type: 'wh', value: '(' },
+        { type: 'lb', value: 'args' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    { tokens: [{ type: 'wh', value: '' }] },
+
+    {
+      tokens: [
+        { type: 'cmt', value: '// Add services' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'builder' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Services' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'AddControllers' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'builder' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Services' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'AddEndpointsApiExplorer' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'builder' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Services' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'AddSwaggerGen' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    { tokens: [{ type: 'wh', value: '' }] },
+
+    {
+      tokens: [
+        { type: 'bl', value: 'var ' },
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: ' = ' },
+        { type: 'lb', value: 'builder' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'Build' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    { tokens: [{ type: 'wh', value: '' }] },
+
+    {
+      tokens: [
+        { type: 'pk', value: 'if ' },
+        { type: 'wh', value: '(' },
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'wh', value: 'Environment' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'IsDevelopment' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ')' },
+      ],
+    },
+
+    {
+      tokens: [{ type: 'wh', value: '{' }],
+    },
+
+    {
+      indent: 1,
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'UseSwagger' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      indent: 1,
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'UseSwaggerUI' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
       tokens: [{ type: 'wh', value: '}' }],
+    },
+
+    { tokens: [{ type: 'wh', value: '' }] },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'UseHttpsRedirection' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'UseAuthorization' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'MapControllers' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
+    },
+
+    {
+      tokens: [
+        { type: 'lb', value: 'app' },
+        { type: 'wh', value: '.' },
+        { type: 'yl', value: 'Run' },
+        { type: 'wh', value: '(' },
+        { type: 'wh', value: ')' },
+        { type: 'wh', value: ';' },
+      ],
     },
   ],
   correctOptionId: 3,

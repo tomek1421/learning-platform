@@ -15,9 +15,11 @@
                             @switch (token.type) {
                                 @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
                                 @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                @case ('lb') { <c-lb>{{ token.value }}</c-lb> }
                                 @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
                                 @case ('or') { <c-or>{{ token.value }}</c-or> }
                                 @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                @case ('cmt') { <c-cmt>{{ token.value }}</c-cmt> }
                                 @default { <span>{{ token.value }}</span> }
                             }
                         }
@@ -45,9 +47,11 @@
                             @switch (token.type) {
                                 @case ('yl') { <c-yl>{{ token.value }}</c-yl> }
                                 @case ('bl') { <c-bl>{{ token.value }}</c-bl> }
+                                @case ('lb') { <c-lb>{{ token.value }}</c-lb> }
                                 @case ('gr') { <c-gr>{{ token.value }}</c-gr> }
                                 @case ('or') { <c-or>{{ token.value }}</c-or> }
                                 @case ('pk') { <c-pk>{{ token.value }}</c-pk> }
+                                @case ('cmt') { <c-cmt>{{ token.value }}</c-cmt> }
                                 @default { <span>{{ token.value }}</span> }
                             }
                         }
