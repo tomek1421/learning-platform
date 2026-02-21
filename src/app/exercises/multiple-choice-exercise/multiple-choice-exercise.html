@@ -62,7 +62,7 @@
 
     <div class="answers-block" >
         <!-- ANSWERS -->
-        @for (option of multipleChoiceExercise.options; track $index) {
+        @for (option of shuffleOptions; track $index) {
             <button class="answer-btn" [class]="{ selected: option.id === selectedId, correct: option.id === selectedId && isSubmited && isAnswerCorerct() || (option.id === multipleChoiceExercise.correctOptionId && isSubmited), wrong: option.id === selectedId && isSubmited && !isAnswerCorerct() }" [disabled]="isSubmited" (click)="setSelectedAnswer(option.id)" >
                 @for (answerItem of option.answer; track $index) {
                     @for (contentItem of answerItem.content; track $index) {

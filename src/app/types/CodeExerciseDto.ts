@@ -27,7 +27,7 @@ export interface AnswerDto {
 
 export interface CodeExerciseDto {
     id: string;
-    type: 'code' | 'multiple' | 'order';
+    type: 'code' | 'multiple' | 'order' | 'match';
     instruction: string;
     correctOptionId: number;
     options: AnswerDto[];

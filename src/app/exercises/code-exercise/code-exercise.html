@@ -77,7 +77,7 @@
         <!-- OPTIONS -->
         <div class="control-panel" >
             <div class="options" >
-                @for (option of codeExercise.options; track $index) {
+                @for (option of shuffleOptions; track $index) {
                     <button class="code-btn" [class]="{ selected: option.id === selectedId, correct: option.id === selectedId && isSubmited && isAnswerCorerct() || (option.id === codeExercise.correctOptionId && isSubmited), wrong: option.id === selectedId && isSubmited && !isAnswerCorerct() }" [disabled]="isSubmited" (click)="setInputGap(option.id)" >
                         @for (token of option.content; track $index) {
                             @switch (token.type) {

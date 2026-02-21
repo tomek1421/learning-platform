@@ -1,6 +1,8 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CodeOrderExerciseDto } from '../../types/CodeOrderExercise';
 import { ExerciseInterface } from '../../types/exerciseInterfaces';
+import { AnswerDto } from '../../types/CodeExerciseDto';
+import { shuffle } from '../../shared/functions';
 
 @Component({
   selector: 'app-code-order-exercise',
@@ -9,7 +11,11 @@ import { ExerciseInterface } from '../../types/exerciseInterfaces';
   styleUrl: './code-order-exercise.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class CodeOrderExercise implements ExerciseInterface {
+export class CodeOrderExercise implements ExerciseInterface, OnInit {
+    
+    ngOnInit() {
+      this.shuffleOptions = shuffle<AnswerDto>(this.codeOrderExercise.options);
+    }
 
     @Input({required: true}) codeOrderExercise!: CodeOrderExerciseDto;
 
@@ -20,6 +26,8 @@ export class CodeOrderExercise implements ExerciseInterface {
     @Output() reset = new EventEmitter();
 
     @Output() disable = new EventEmitter();
+
+    shuffleOptions!: AnswerDto[];
 
     selectedIdsOrder: number[] = [];
 

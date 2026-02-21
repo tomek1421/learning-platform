@@ -41,7 +41,7 @@
         <!-- OPTIONS -->
         <div class="control-panel" >
             <div class="options" >
-                @for (option of codeOrderExercise.options; track $index) {
+                @for (option of shuffleOptions; track $index) {
                     <button class="code-btn" [class]="{ selected: isSelected(option.id), correct: isSubmited && isOptionCorrect(option.id), wrong: isSubmited && !isOptionCorrect(option.id) }" [disabled]="isSubmited" (click)="onClickOption(option.id)" >
                         @for (token of option.content; track $index) {
                             @switch (token.type) {

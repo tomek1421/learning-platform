@@ -20,7 +20,7 @@ export interface TextWithCodeAnswerDto {
 
 export interface MultipleChoiceExerciseDto {
     id: string,
-    type: 'code' | 'multiple' | 'order',
+    type: 'code' | 'multiple' | 'order' | 'match',
     instruction: TextWithCodeDto[],
     lines?: CodeLinesDto[],
     correctOptionId: number,

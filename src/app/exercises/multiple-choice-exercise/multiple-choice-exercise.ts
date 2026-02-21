@@ -1,7 +1,8 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
-import { MultipleChoiceExerciseDto } from '../../types/MultipleChoiceExerciseDto';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MultipleChoiceExerciseDto, TextWithCodeAnswerDto } from '../../types/MultipleChoiceExerciseDto';
 import { CodeTokenDto } from '../../types/CodeExerciseDto';
 import { ExerciseInterface } from '../../types/exerciseInterfaces';
+import { shuffle } from '../../shared/functions';
 
 @Component({
   selector: 'app-multiple-choice-exercise',
@@ -10,7 +11,11 @@ import { ExerciseInterface } from '../../types/exerciseInterfaces';
   styleUrl: './multiple-choice-exercise.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class MultipleChoiceExercise implements ExerciseInterface {
+export class MultipleChoiceExercise implements ExerciseInterface, OnInit {
+  
+  ngOnInit() {
+    this.shuffleOptions = shuffle<TextWithCodeAnswerDto>(this.multipleChoiceExercise.options);
+  }
 
   @Input({required: true}) multipleChoiceExercise!: MultipleChoiceExerciseDto;
 
@@ -23,6 +28,8 @@ export class MultipleChoiceExercise implements ExerciseInterface {
   @Output() userAnswer = new EventEmitter<boolean>();
 
   @Output() reset = new EventEmitter();
+
+   shuffleOptions!: TextWithCodeAnswerDto[];
 
   selectedId: number | null = null;
 

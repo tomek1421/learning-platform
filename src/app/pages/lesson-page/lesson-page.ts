@@ -98,10 +98,10 @@ export class LessonPage {
   }
 
   parseToCodeExercise() {
-    return this.currentExercise as CodeExerciseDto;
+    return this.currentExercise as unknown as CodeExerciseDto;
   }
 
   parseToMultipleExercise() {
-    return this.currentExercise as MultipleChoiceExerciseDto;
+    return this.currentExercise as unknown as MultipleChoiceExerciseDto;
   }
 }

@@ -15,7 +15,7 @@
             }
 
             @if (currentExercise.type === 'match') {
-                <app-match-pairs-exercise [matchPairsExercise]="matchPairsExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
+                <app-match-pairs-exercise [matchPairsExercise]="matchPairsExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
             }
             
         </div>

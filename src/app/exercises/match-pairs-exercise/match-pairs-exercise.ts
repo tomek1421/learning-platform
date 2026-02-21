@@ -25,6 +25,8 @@ export class MatchPairsExercise implements ExerciseInterface, OnInit {
 
   @Output() reset = new EventEmitter();
 
+  @Output() disable = new EventEmitter();
+
   shuffleOptions!: MatchPairDto[];
 
   selectedPairsIds: [number | null, number | null][] = [];
@@ -58,6 +60,8 @@ export class MatchPairsExercise implements ExerciseInterface, OnInit {
       if (this.selectedPairsIds.length === this.matchPairsExercise.options.length && this.selectedPairsIds.every(([a,b]) => a !== null && b !== null)) {
         const isCorrect = this.isAnswerCorerct();
         this.userAnswer.emit(isCorrect);
+      } else {
+        this.disable.emit();
       }
 
       console.log(this.selectedPairsIds);
