@@ -3,19 +3,19 @@
         <div class="exercise" >
             
             @if (currentExercise.type === 'code') {
-                <app-code-exercise [codeExercise]="parseToCodeExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
+                <app-code-exercise [codeExercise]="parseToCodeExercise(currentExercise)" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
             }
     
             @if (currentExercise.type === 'multiple') {
-                <app-multiple-choice-exercise [multipleChoiceExercise]="parseToMultipleExercise()" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
+                <app-multiple-choice-exercise [multipleChoiceExercise]="parseToMultipleExercise(currentExercise)" [resetTrigger]="resetCounter" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
             }
 
             @if (currentExercise.type === 'order') {
-                <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
+                <app-code-order-exercise [codeOrderExercise]="parseToCodeOrderExercise(currentExercise)" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
             }
 
             @if (currentExercise.type === 'match') {
-                <app-match-pairs-exercise [matchPairsExercise]="matchPairsExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
+                <app-match-pairs-exercise [matchPairsExercise]="parseToMatchPairsExercise(currentExercise)" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
             }
             
         </div>

@@ -22,8 +22,8 @@ export class LessonPage {
   codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
   matchPairsExerciseData: MatchPairsExerciseDto = matchPairsExercise;
 
-  listOfExercises = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
-  // listOfExercises = [this.codeOrderExerciseData];
+  listOfExercises: (CodeExerciseDto | MultipleChoiceExerciseDto | CodeOrderExerciseDto | MatchPairsExerciseDto)[] = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
+  // listOfExercises: (CodeExerciseDto | MultipleChoiceExerciseDto | CodeOrderExerciseDto | MatchPairsExerciseDto)[] = [this.multipleChoiceExerciseData, this.codeOrderExerciseData, this.matchPairsExerciseData, this.multipleChoiceExerciseData2];
 
   currentExerciseIndex = 0;
 
@@ -97,11 +97,20 @@ export class LessonPage {
     this.resetCounter++;
   }
 
-  parseToCodeExercise() {
-    return this.currentExercise as unknown as CodeExerciseDto;
+  parseToCodeExercise(obj: any) {
+    return obj as CodeExerciseDto;
   }
 
-  parseToMultipleExercise() {
-    return this.currentExercise as unknown as MultipleChoiceExerciseDto;
+  parseToMultipleExercise(obj: any) {
+    return obj as MultipleChoiceExerciseDto;
   }
+
+  parseToCodeOrderExercise(obj: any) {
+    return obj as CodeOrderExerciseDto;
+  }
+
+  parseToMatchPairsExercise(obj: any) {
+    return obj as MatchPairsExerciseDto;
+  }
+
 }
