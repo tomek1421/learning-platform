@@ -1,5 +1,6 @@
 import { CodeExerciseDto } from "../types/CodeExerciseDto";
 import { CodeOrderExerciseDto } from "../types/CodeOrderExercise";
+import { MatchPairsExerciseDto } from "../types/MatchPairsExerciseDto";
 import { MultipleChoiceExerciseDto } from "../types/MultipleChoiceExerciseDto";
 
 export const csHelloWorldExercise: CodeExerciseDto = {
@@ -454,4 +455,107 @@ export const codeOrderExercise: CodeOrderExerciseDto = {
     { id: 6, content: [{ type: 'wh', value: ');' }] },
   ],
   correctOptionsIdOrder: [1, 2, 3, 4, 5, 6]
+};
+
+export const matchPairsExercise: MatchPairsExerciseDto = {
+  id: "match-001",
+  type: "match",
+  instruction: [
+    {
+      content: [
+        {
+          token: "Match each C# keyword with its description."
+        }
+      ]
+    }
+  ],
+  options: [
+    {
+      id: 1,
+      firstOption: {
+        id: 101,
+        answer: [
+          {
+            content: [
+              {
+                token: [
+                  { type: "bl", value: "public" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      secondOption: {
+        id: 201,
+        answer: [
+          {
+            content: [
+              {
+                token: "Accessible from anywhere"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      id: 2,
+      firstOption: {
+        id: 102,
+        answer: [
+          {
+            content: [
+              {
+                token: [
+                  { type: "bl", value: "private" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      secondOption: {
+        id: 202,
+        answer: [
+          {
+            content: [
+              {
+                token: "Accessible only inside the class and ala ma kota"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      id: 3,
+      firstOption: {
+        id: 103,
+        answer: [
+          {
+            content: [
+              {
+                token: [
+                  { type: "lb", value: "class" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      secondOption: {
+        id: 203,
+        answer: [
+          {
+            content: [
+              {
+                token: "Defines a reference type and lala ma kota kot ma ale"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 };

@@ -13,6 +13,10 @@
             @if (currentExercise.type === 'order') {
                 <app-code-order-exercise [codeOrderExercise]="codeOrderExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" (disable)="disable()" />
             }
+
+            @if (currentExercise.type === 'match') {
+                <app-match-pairs-exercise [matchPairsExercise]="matchPairsExerciseData" [isSubmited]="isAnswerSubmited" (userAnswer)="onSelectAnswer($event)" (reset)="reset()" />
+            }
             
         </div>
     }

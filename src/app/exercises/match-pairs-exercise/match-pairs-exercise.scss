@@ -33,9 +33,16 @@
 
 .answers-block {
     display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.column {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-top: 1rem;
+    // border: 1px solid red;
 }
 
 .answer-btn {
@@ -71,14 +78,12 @@
 }
 
 .selected {
-    background-color: $active-light;
-    border-color: $active;
-    // box-shadow: 0 2px 0 $active;
+  border-color: $active;
+  background-color: $active-light;
 
-    &:not(:disabled):hover {
-        border-color: $active;
-        background-color: $active-light;
-    }
+  &:not(:disabled):hover {
+    background-color: $active-light;
+  }
 }
 
 .correct {
@@ -90,13 +95,12 @@
   border-color: red;
   background-color: rgb(255, 222, 222);
 }
-
 .status-square {
   position: absolute;
   content: '';
   width: 1rem;
   height: 1rem;
-  background-color: rgb(69, 193, 102);
+  background-color: $active;
   color: white;
   top: -0.4rem;
   right: -0.4rem;
@@ -118,37 +122,12 @@
   background-color: red;
 }
 
+.square-correct {
+  background-color: rgb(69, 193, 102);
+}
+
 .reset-section {
   display: flex;
   justify-content: flex-end;
   margin-top: 0.5rem;
-}
-
-.line-number {
-  display: inline-block;
-  width: 18px;
-  text-align: right;
-  padding-right: 1rem;
-  color: $secondary-text-color;
-
-  // border: 1px solid;
-}
-
-// code
-.code-block {
-  padding: 0.5rem;
-  border-radius: 0.8rem;
-  background-color: $code-background-color;
-  margin-bottom: 1rem;
-  // box-shadow: 0 0 5px #2e313a;
-  // border: 2px solid $secondary-background-color;
-}
-
-code {
-  font-size: 1rem;
-  font-family: $code-font-family;
-  font-weight: $code-font-weight;
-  line-height: 2rem;
-  // line-height: 1.8rem;
-  color: white;
 }

@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { csHelloWorldExercise, codeOrderExercise, multipleChoiceExercise, multipleChoiceExercise2 } from '../../data/exercises';
+import { csHelloWorldExercise, codeOrderExercise, multipleChoiceExercise, multipleChoiceExercise2, matchPairsExercise } from '../../data/exercises';
 import { CodeExerciseDto } from '../../types/CodeExerciseDto';
 import { CodeExercise } from "../../exercises/code-exercise/code-exercise";
 import { MultipleChoiceExercise } from "../../exercises/multiple-choice-exercise/multiple-choice-exercise";
 import { MultipleChoiceExerciseDto } from '../../types/MultipleChoiceExerciseDto';
 import { CodeOrderExercise } from "../../exercises/code-order-exercise/code-order-exercise";
 import { CodeOrderExerciseDto } from '../../types/CodeOrderExercise';
+import { MatchPairsExerciseDto } from '../../types/MatchPairsExerciseDto';
+import { MatchPairsExercise } from "../../exercises/match-pairs-exercise/match-pairs-exercise";
 
 @Component({
   selector: 'app-lesson-page',
-  imports: [CodeExercise, MultipleChoiceExercise, CodeOrderExercise],
+  imports: [CodeExercise, MultipleChoiceExercise, CodeOrderExercise, MatchPairsExercise],
   templateUrl: './lesson-page.html',
   styleUrl: './lesson-page.scss',
 })
@@ -18,8 +20,9 @@ export class LessonPage {
   multipleChoiceExerciseData: MultipleChoiceExerciseDto = multipleChoiceExercise;
   multipleChoiceExerciseData2: MultipleChoiceExerciseDto = multipleChoiceExercise2;
   codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
+  matchPairsExerciseData: MatchPairsExerciseDto = matchPairsExercise;
 
-  listOfExercises = [this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
+  listOfExercises = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
   // listOfExercises = [this.codeOrderExerciseData];
 
   currentExerciseIndex = 0;
