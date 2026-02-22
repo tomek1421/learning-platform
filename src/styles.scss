@@ -20,9 +20,9 @@ button {
   align-items: center;
   justify-content: center;
   font-family: $font-family;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   font-size: $font-size;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   height: 3rem;
   padding: 0 1.5rem;
   background-color: $code-background-color;
@@ -30,7 +30,7 @@ button {
   box-sizing: border-box;
   // border: 2px solid $secondary-background-color;
   box-shadow: 0 5px 0 $code-secondary-background-color;
-  // 2 x 5px - ONLY for big btn
+  // MARGIN 10px in .btn !!!!!!!
   margin-bottom: 10px;
 
   &:active {
@@ -65,6 +65,25 @@ button {
   box-shadow: 0 5px 0 rgb(133, 203, 150);
 }
 
+.btn-border {
+  box-shadow: 0 3px 0 $dark-gray;
+  box-sizing: content-box;
+  height: calc(3rem - 2px);
+  border: 2px solid $dark-gray;
+  // margin-top: 2px;
+  background-color: white;
+  color: $text-color;
+  // MARGIN 10px in .btn 
+  margin-bottom: 0;
+  transform: translateY(-4px);
+  padding: 0 0.5rem;
+
+  &:active {
+    transform: translateY(-2px);
+    box-shadow: none;
+  }
+}
+
 c-bl {
   color: $code-blue;
 }
@@ -97,7 +116,14 @@ c-cmt {
   color: $code-comment-green;
 }
 
-c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl, c-cmt {
+c-bl,
+c-gr,
+c-lp,
+c-or,
+c-wh,
+c-pk,
+c-yl,
+c-cmt {
   white-space: pre;
 }
 
@@ -106,6 +132,7 @@ c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl, c-cmt {
     opacity: 0.75;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -128,6 +155,8 @@ c-bl, c-gr, c-lp, c-or, c-wh, c-pk, c-yl, c-cmt {
   position: relative;
   padding: 0.5rem 1rem;
   line-height: 1.8rem;
+  // font-weight: $font-weight;
+  font-weight: $font-weight-bold;
 
   &:hover {
     background-color: $light-gray;

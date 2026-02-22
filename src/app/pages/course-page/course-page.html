@@ -1,0 +1,67 @@
+<div class="page">
+    <section class="main-section" >
+
+        <div class="course-image" >
+            <svg xmlns="http://www.w3.org/2000/svg" id="screenshot-3b714a5e-49c5-803b-8007-9b81e6cc0488" viewBox="-1018 1700 350 350"  xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"><g id="shape-3b714a5e-49c5-803b-8007-9b81e6cc0488"><defs><pattern patternUnits="userSpaceOnUse" x="-1018" y="1700" width="350" height="350" id="fill-0-render-575"><g><image id="fill-image-render-575-0" href="https://design.penpot.app/assets/by-file-media-id/8f38fb36-6719-8008-8007-9b81e6ccfa7c" preserveAspectRatio="xMidYMid slice" width="350" height="350" opacity="1"></image></g></pattern></defs><g class="fills" id="fills-3b714a5e-49c5-803b-8007-9b81e6cc0488"><rect rx="0" ry="0" x="-1018" y="1700" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="350" height="350" fill="url(#fill-0-render-575)"></rect></g></g></svg>
+        </div>
+
+        <div class="title" >{{ courseData.name }}</div>
+
+        <div class="details-group" >
+            <div class="detail" >
+                <app-chapter-icon />
+                {{ courseData.chapters.length }} Chapters
+            </div>
+
+            <div class="detail">
+                <app-gym-icon />
+                {{ getAllLessons() }} Lessons
+            </div>
+        </div>
+
+        <div class="links-group" >
+            @for (reference of courseData.fastReferences; track $index) {
+                <button class="btn btn-border" >
+                    @if (reference.type === 'exercise') {
+                        <app-exercise-icon class="course-element-icon" />
+                    } @else if (reference.type === 'note') {
+                        <app-note-icon class="course-element-icon" />
+                    }
+                    {{ reference.name }}
+                </button>
+            }
+        </div>
+    </section>
+
+    <section class="course-details-section" >
+        @for (chapter of courseData.chapters; track $index) {
+
+            <div class="chapter" >
+                <button class="btn-chapter-head" (click)="onChapterClick(chapter.id)" >
+                    <div class="center">
+                        <div class="level" [style.color]="getLevelColor($index)" >level {{ $index + 1 }}</div>
+                        <div class="chapter-title" >{{ chapter.name }}</div>
+                    </div>
+                    <div class="right" >
+                        <app-arrow-icon [class.expand]="isExpanded(chapter.id)" />
+                    </div>
+                </button>
+
+                @if(isExpanded(chapter.id)) {
+                    <div class="lessons-group" >
+                        @for (lesson of chapter.lessonReferences; track $index) {
+                            <button class="btn btn-border" [routerLink]="'lesson/'+ lesson.referenceId" >
+                                @if (lesson.type === 'exercise') {
+                                    <app-exercise-icon class="course-element-icon" />
+                                } @else if (lesson.type === 'note') {
+                                    <app-note-icon class="course-element-icon" />
+                                }
+                                {{ lesson.name }}
+                            </button>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </section>
+</div>

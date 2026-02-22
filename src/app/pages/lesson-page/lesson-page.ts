@@ -8,6 +8,7 @@ import { CodeOrderExercise } from "../../exercises/code-order-exercise/code-orde
 import { CodeOrderExerciseDto } from '../../types/CodeOrderExercise';
 import { MatchPairsExerciseDto } from '../../types/MatchPairsExerciseDto';
 import { MatchPairsExercise } from "../../exercises/match-pairs-exercise/match-pairs-exercise";
+import { LessonItem } from '../../types/Course';
 
 @Component({
   selector: 'app-lesson-page',
@@ -22,8 +23,10 @@ export class LessonPage {
   codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
   matchPairsExerciseData: MatchPairsExerciseDto = matchPairsExercise;
 
-  listOfExercises: (CodeExerciseDto | MultipleChoiceExerciseDto | CodeOrderExerciseDto | MatchPairsExerciseDto)[] = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
-  // listOfExercises: (CodeExerciseDto | MultipleChoiceExerciseDto | CodeOrderExerciseDto | MatchPairsExerciseDto)[] = [this.multipleChoiceExerciseData, this.codeOrderExerciseData, this.matchPairsExerciseData, this.multipleChoiceExerciseData2];
+  lessonId = '123';
+  lessonName = 'lesson name';
+  listOfExercises: LessonItem[] = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
+  // listOfExercises: LessonItem[] = [this.multipleChoiceExerciseData, this.codeOrderExerciseData, this.matchPairsExerciseData, this.multipleChoiceExerciseData2];
 
   currentExerciseIndex = 0;
 
