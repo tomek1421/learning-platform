@@ -50,7 +50,7 @@
                 @if(isExpanded(chapter.id)) {
                     <div class="lessons-group" >
                         @for (lesson of chapter.lessonReferences; track $index) {
-                            <button class="btn btn-border" [routerLink]="'lesson/'+ lesson.referenceId" >
+                            <button class="btn btn-border" [routerLink]="lesson.referenceId" >
                                 @if (lesson.type === 'exercise') {
                                     <app-exercise-icon class="course-element-icon" />
                                 } @else if (lesson.type === 'note') {

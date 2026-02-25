@@ -91,6 +91,11 @@
   background-color: rgb(255, 222, 222);
 }
 
+.gray {
+  border-color: $dark-gray;
+  background-color: $light-gray;
+}
+
 .status-square {
   position: absolute;
   content: '';
@@ -116,6 +121,10 @@
 
 .square-wrong {
   background-color: red;
+}
+
+.squere-gray {
+  background-color: $dark-gray;
 }
 
 .reset-section {

@@ -6,5 +6,5 @@ import { CoursePage } from './pages/course-page/course-page';
 export const routes: Routes = [
     { path: '', component: HomePage },
     { path: 'course', component: CoursePage },
-    { path: 'course/lesson/:id', component: LessonPage }
+    { path: 'course/:id', component: LessonPage }
 ];

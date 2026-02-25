@@ -1,5 +1,5 @@
 <div class="page" >
-    @if (showExercise) {
+    @if (showExercise && currentExercise) {
         <div class="exercise" >
             
             @if (currentExercise.type === 'code') {
@@ -39,7 +39,7 @@
             <div class="btn-group">
                 <!-- <button class="btn btn-gray" (click)="reset()" >Reset</button> -->
                 <button class="btn" >Why?</button>
-                <button class="btn" [class]="isAnswerCorrect ? 'btn-green' : 'btn-gray'" (click)="nextExecise()" >Continue</button>
+                <button class="btn" [class]="isAnswerCorrect ? 'btn-green' : 'btn-red'" (click)="nextExecise()" >Continue</button>
             </div>
         </div>
     </div>

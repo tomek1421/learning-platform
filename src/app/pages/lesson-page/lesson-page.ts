@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { csHelloWorldExercise, codeOrderExercise, multipleChoiceExercise, multipleChoiceExercise2, matchPairsExercise } from '../../data/exercises';
 import { CodeExerciseDto } from '../../types/CodeExerciseDto';
 import { CodeExercise } from "../../exercises/code-exercise/code-exercise";
@@ -8,7 +8,9 @@ import { CodeOrderExercise } from "../../exercises/code-order-exercise/code-orde
 import { CodeOrderExerciseDto } from '../../types/CodeOrderExercise';
 import { MatchPairsExerciseDto } from '../../types/MatchPairsExerciseDto';
 import { MatchPairsExercise } from "../../exercises/match-pairs-exercise/match-pairs-exercise";
-import { LessonItem } from '../../types/Course';
+import { ExerciseDto, LessonDto } from '../../types/Course';
+import { ActivatedRoute } from '@angular/router';
+import { loadLesson } from '../../data/dataLoader';
 
 @Component({
   selector: 'app-lesson-page',
@@ -16,17 +18,30 @@ import { LessonItem } from '../../types/Course';
   templateUrl: './lesson-page.html',
   styleUrl: './lesson-page.scss',
 })
-export class LessonPage {
+export class LessonPage implements OnInit {
+
+  async ngOnInit() {
+    const lessonId = this.route.snapshot.paramMap.get('id') ?? "1000";
+
+    console.log(lessonId);
+     
+    const lesson: LessonDto = await loadLesson(lessonId);
+    this.listOfExercises = lesson.lessonItems;
+  }
+
   exerciseData: CodeExerciseDto = csHelloWorldExercise;
   multipleChoiceExerciseData: MultipleChoiceExerciseDto = multipleChoiceExercise;
   multipleChoiceExerciseData2: MultipleChoiceExerciseDto = multipleChoiceExercise2;
   codeOrderExerciseData: CodeOrderExerciseDto = codeOrderExercise;
   matchPairsExerciseData: MatchPairsExerciseDto = matchPairsExercise;
+  
+  private route = inject(ActivatedRoute);
 
   lessonId = '123';
   lessonName = 'lesson name';
-  listOfExercises: LessonItem[] = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
-  // listOfExercises: LessonItem[] = [this.multipleChoiceExerciseData, this.codeOrderExerciseData, this.matchPairsExerciseData, this.multipleChoiceExerciseData2];
+  // listOfExercises: ExerciseDto[] = [this.matchPairsExerciseData, this.exerciseData, this.multipleChoiceExerciseData, this.multipleChoiceExerciseData2, this.codeOrderExerciseData];
+  // listOfExercises: ExerciseDto[] = [this.multipleChoiceExerciseData, this.codeOrderExerciseData, this.matchPairsExerciseData, this.multipleChoiceExerciseData2];
+  listOfExercises: ExerciseDto[] = [];
 
   currentExerciseIndex = 0;
 

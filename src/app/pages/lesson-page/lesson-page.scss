@@ -84,11 +84,11 @@
 }
 
 .failure {
-    // background-color: rgb(255, 203, 203);
-    // border-top: 2px solid rgb(237, 169, 169);
-    // color: rgb(176, 54, 54);
-    background-color: $light-gray;
-    color: $text-color;
+    background-color: rgb(255, 203, 203);
+    border-top: 2px solid rgb(226, 150, 150);
+    color: rgb(184, 24, 24);
+    // background-color: $light-gray;
+    // color: $text-color;
 }
 
 @keyframes footerUp {

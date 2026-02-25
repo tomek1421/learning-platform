@@ -65,6 +65,12 @@ button {
   box-shadow: 0 5px 0 rgb(133, 203, 150);
 }
 
+.btn-red {
+  background-color: rgb(226, 150, 150);
+  color: $text-color;
+  box-shadow: 0 5px 0 rgb(196, 124, 124);
+}
+
 .btn-border {
   box-shadow: 0 3px 0 $dark-gray;
   box-sizing: content-box;
