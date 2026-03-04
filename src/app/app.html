@@ -1,5 +1,12 @@
 <div class="nav" >
-
+    @if(showLessonNav) {
+        <!-- {{ navState.currentExerciseIndex }} / {{ navState.totalExercises }} -->
+        <div class="center-content" >
+            <div class="bar" >
+                <div class="progress" [class.progress-animation]="navState.currentExerciseIndex > 0" [style.width]="calculateBarProgress() + '%'" ></div>
+            </div>
+        </div>
+    }
 </div>
 
 <div class="page-content" >

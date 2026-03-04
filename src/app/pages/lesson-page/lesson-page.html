@@ -1,5 +1,16 @@
 <div class="page" >
-    @if (showExercise && currentExercise) {
+    @if (isFinished) {
+        <div class="finish-step" >
+            <div class="header" >End of lesson</div>
+            <div><span class="bold">{{ listOfExercises.length }}</span> exercises completed</div>
+            <!-- <div class="dot-group" >
+                @for (_ of listOfExercises; track $index) {
+                    <span class="dot" ></span>
+                }
+            </div> -->
+        </div>
+    }
+    @else if (showExercise && currentExercise) {
         <div class="exercise" >
             
             @if (currentExercise.type === 'code') {
@@ -46,7 +57,11 @@
 } @else {
     <div class="footer" >
         <div class="content"> 
+            @if (isFinished) {
+                <button class="btn btn-wide" routerLink="/course" >Go back</button>
+            } @else {
                 <button class="btn btn-wide" (click)="onSubmitAnswer()" [disabled]="!selectedAnswerId" >Check</button>
+            }
         </div>
     </div>
 }

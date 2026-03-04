@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ExerciseIcon } from "../../icons/exercise-icon/exercise-icon";
 import { NoteIcon } from "../../icons/note-icon/note-icon";
 import { ChapterIcon } from "../../icons/chapter-icon/chapter-icon";
@@ -6,7 +6,8 @@ import { GymIcon } from "../../icons/gym-icon/gym-icon";
 import { ArrowIcon } from "../../icons/arrow-icon/arrow-icon";
 import { CourseDto } from '../../types/Course';
 import { csharpCourse, levelColors } from '../../data/courses';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
+import { NavStateService } from '../../services/nav-state-service';
 
 @Component({
   selector: 'app-course-page',
@@ -16,12 +17,18 @@ import { RouterLink } from "@angular/router";
 })
 export class CoursePage implements OnChanges {
   
+  ngOnInit() {
+    this.expandChapter = Array(this.courseData.chapters.length).fill(true);
+  }
+
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['courseData'] && this.courseData) {
-       this.expandChapter = Array(this.courseData.chapters.length).fill(false);
-    }
+    // if (changes['courseData'] && this.courseData) {
+    //    this.expandChapter = Array(this.courseData.chapters.length).fill(true);
+    // }
   }
   
+  navState = inject(NavStateService);
+
   courseData: CourseDto = csharpCourse;
 
   expandChapter: boolean[] = [];
@@ -32,7 +39,7 @@ export class CoursePage implements OnChanges {
   }
 
   isExpanded(id: string) {
-    const index =this.courseData.chapters.findIndex(c => c.id === id);
+    const index = this.courseData.chapters.findIndex(c => c.id === id);
     return this.expandChapter[index];
   }
 

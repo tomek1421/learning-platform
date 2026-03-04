@@ -2,7 +2,7 @@
     <section class="main-section" >
 
         <div class="course-image" >
-            <svg xmlns="http://www.w3.org/2000/svg" id="screenshot-3b714a5e-49c5-803b-8007-9b81e6cc0488" viewBox="-1018 1700 350 350"  xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1"><g id="shape-3b714a5e-49c5-803b-8007-9b81e6cc0488"><defs><pattern patternUnits="userSpaceOnUse" x="-1018" y="1700" width="350" height="350" id="fill-0-render-575"><g><image id="fill-image-render-575-0" href="https://design.penpot.app/assets/by-file-media-id/8f38fb36-6719-8008-8007-9b81e6ccfa7c" preserveAspectRatio="xMidYMid slice" width="350" height="350" opacity="1"></image></g></pattern></defs><g class="fills" id="fills-3b714a5e-49c5-803b-8007-9b81e6cc0488"><rect rx="0" ry="0" x="-1018" y="1700" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="350" height="350" fill="url(#fill-0-render-575)"></rect></g></g></svg>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="790" height="790" viewBox="0 0 790 790"><path fill="#512bd4" fill-rule="evenodd" d="m395 36-37.203 21.479L84.097 215.5v359L395 754l310.903-179.5v-359L435.395 59.322z"/><path fill="#fff" fill-rule="evenodd" d="M397.252 618c-122.883 0-222.5-99.617-222.5-222.5S274.369 173 397.252 173c82.224 0 154.679 45.73 193.197 112.063l-88.056 50.87c-20.751-37.094-59.614-61.751-105.141-61.751-67.002 0-121.316 54.316-121.316 121.318s54.314 121.318 121.316 121.318c45.228 0 84.675-24.752 105.537-61.447l87.943 50.074C552.45 572.67 480.145 618 397.252 618"/><text xml:space="preserve" x="532.41333" y="447" fill="#fff" font-family="Open Sans" font-size="169" font-weight="700">#</text></svg> -->
         </div>
 
         <div class="title" >{{ courseData.name }}</div>
@@ -21,7 +21,7 @@
 
         <div class="links-group" >
             @for (reference of courseData.fastReferences; track $index) {
-                <button class="btn btn-border" >
+                <button class="btn btn-border" (click)="navState.reset()" [routerLink]="'fast-references' + '/' + reference.referenceId" >
                     @if (reference.type === 'exercise') {
                         <app-exercise-icon class="course-element-icon" />
                     } @else if (reference.type === 'note') {
@@ -50,7 +50,7 @@
                 @if(isExpanded(chapter.id)) {
                     <div class="lessons-group" >
                         @for (lesson of chapter.lessonReferences; track $index) {
-                            <button class="btn btn-border" [routerLink]="lesson.referenceId" >
+                            <button class="btn btn-border" (click)="navState.reset()" [routerLink]="chapter.id + '/' + lesson.referenceId" >
                                 @if (lesson.type === 'exercise') {
                                     <app-exercise-icon class="course-element-icon" />
                                 } @else if (lesson.type === 'note') {
