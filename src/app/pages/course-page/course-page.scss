@@ -39,6 +39,7 @@
 .details-group {
     display: flex;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
 .detail {
@@ -54,7 +55,6 @@
 }
 
 .links-group {
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
