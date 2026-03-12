@@ -5,9 +5,7 @@ import { multipleChoiceExercise, csHelloWorldExercise, codeOrderExercise } from 
 const lesson: LessonDto = {
     id: 'lesson-01',
     lessonItems: [
-        multipleChoiceExercise,
-        csHelloWorldExercise,
-        codeOrderExercise
+        
     ]
 }
 

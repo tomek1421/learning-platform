@@ -18,7 +18,7 @@ import { NavStateService } from '../../services/nav-state-service';
 export class CoursePage implements OnChanges {
   
   ngOnInit() {
-    this.expandChapter = Array(this.courseData.chapters.length).fill(true);
+    this.expandChapter = Array(this.courseData.chapters.length).fill(false);
   }
 
   ngOnChanges(changes: SimpleChanges) {
