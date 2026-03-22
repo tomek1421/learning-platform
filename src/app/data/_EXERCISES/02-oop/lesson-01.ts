@@ -139,7 +139,7 @@ export const multiple03: MultipleChoiceExerciseDto = {
       tokens: [
         { type: "gr", value: "IEnumerable" },
         { type: "wh", value: "<" },
-        { type: "gr", value: "string" },
+        { type: "bl", value: "string" },
         { type: "wh", value: ">" },
         { type: "wh", value: " " },
         { type: "lb", value: "strings" },
@@ -150,7 +150,7 @@ export const multiple03: MultipleChoiceExerciseDto = {
         { type: "wh", value: " " },
         { type: "gr", value: "List" },
         { type: "wh", value: "<" },
-        { type: "gr", value: "string" },
+        { type: "bl", value: "string" },
         { type: "wh", value: ">" },
         { type: "wh", value: "(" },
         { type: "wh", value: ")" },
@@ -171,7 +171,7 @@ export const multiple03: MultipleChoiceExerciseDto = {
               token: [
                 { type: "gr", value: "IEnumerable" },
                 { type: "wh", value: "<" },
-                { type: "gr", value: "object" },
+                { type: "bl", value: "object" },
                 { type: "wh", value: ">" },
                 { type: "wh", value: " " },
                 { type: "lb", value: "objects" },
@@ -195,7 +195,7 @@ export const multiple03: MultipleChoiceExerciseDto = {
               token: [
                 { type: "gr", value: "List" },
                 { type: "wh", value: "<" },
-                { type: "gr", value: "object" },
+                { type: "bl", value: "object" },
                 { type: "wh", value: ">" },
                 { type: "wh", value: " " },
                 { type: "lb", value: "objects" },
