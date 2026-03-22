@@ -58,9 +58,11 @@
     <div class="footer" >
         <div class="content"> 
             @if (isFinished) {
-                <button class="btn btn-wide" routerLink="/course" >Go back</button>
+                <span></span>
+                <button class="btn" routerLink="/course" >Finish</button>
             } @else {
-                <button class="btn btn-wide" (click)="onSubmitAnswer()" [disabled]="!selectedAnswerId" >Check</button>
+                <button class="btn btn-gray" (click)="nextExecise()" >Skip</button>
+                <button class="btn" (click)="onSubmitAnswer()" [disabled]="!selectedAnswerId" >Check</button>
             }
         </div>
     </div>

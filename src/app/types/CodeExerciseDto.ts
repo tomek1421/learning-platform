@@ -6,7 +6,7 @@ export type Color =
   | 'yl'      // yellow (type)
   | 'or'      // orange (string)
   | 'pk'      // pink (dot / punctuation)
-  | 'cmt';    // comment green
+  | 'cmt';    // comment green      
 
 export interface CodeTokenDto {
     type: Color;
